@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Loot - Gaming Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Steam Accessories</h1>
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <p class="small-title">GAMING GEAR STORE</p>
+      <h2>Level up your setup.</h2>
+      <p>Find some gear for your next gaming session.</p>
+      <a class="button" href="#shop">Browse products</a>
+    </section>
+
+    <section id="shop">
+      <h2>Products</h2>
+      <div class="filters">
+        <input id="search" type="search" placeholder="Search products..." aria-label="Search products">
+        <select id="category">
+          <option value="all">All categories</option>
+          <option value="Headsets">Headsets</option>
+          <option value="Keyboards">Keyboards</option>
+          <option value="Mice">Mice</option>
+          <option value="Controllers">Controllers</option>
+          <option value="Accessories">Accessories</option>
+        </select>
+        <select id="sort" aria-label="Sort products">
+          <option value="default">Sort: Featured</option>
+          <option value="low">Price: Low to high</option>
+          <option value="high">Price: High to low</option>
+          <option value="rating">Highest rated</option>
+        </select>
+      </div>
+      <div id="product-list" class="product-list"></div>
+      <p id="no-products" class="message" hidden>No products found. Try another search or category.</p>
+    </section>
+
+    <section id="cart">
+      <div class="section-heading">
+        <h2>Your cart</h2>
+        <button id="clear-cart" class="plain-button">Clear cart</button>
+      </div>
+      <div class="cart-layout">
+        <div id="cart-list"></div>
+        <div class="summary">
+          <h3>Order summary</h3>
+          <p>Subtotal <strong id="subtotal">₹0</strong></p>
+          <p>Discount <strong id="discount">₹0</strong></p>
+          <p>Delivery <strong id="delivery">₹0</strong></p>
+          <div class="coupon">
+            <label for="coupon">Coupon code</label>
+            <div class="coupon-row">
+              <input id="coupon" placeholder="ROYAL10">
+              <button id="apply-coupon">Apply</button>
+            </div>
+            <small id="coupon-message">Use ROYAL10 or ROYAL20.</small>
+          </div>
+          <h3 class="total">Total <span id="total">₹0</span></h3>
+          <button id="checkout-button" class="button full" disabled>Checkout</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="checkout" hidden>
+      <div class="section-heading">
+        <h2>Checkout</h2>
+        <button id="back-button" class="plain-button">Back to cart</button>
+      </div>
+      <div class="cart-layout">
+        <form id="checkout-form" class="summary checkout-form">
+          <h3>Delivery details</h3>
+          <label>Full name<input name="name" required minlength="2" placeholder="Your name"></label>
+          <label>Email<input name="email" type="email" required placeholder="you@example.com"></label>
+          <label>Address<input name="address" required placeholder="Street address"></label>
+          <div class="two-inputs">
+            <label>City<input name="city" required></label>
+            <label>PIN code<input name="pin" required pattern="[0-9]{6}" maxlength="6" placeholder="6 digits"></label>
+          </div>
+          <label>Payment
+            <select name="payment">
+              <option>Cash on delivery</option>
+              <option>Online payment</option>
+            </select>
+          </label>
+          <button class="button full" type="submit">Place order</button>
+        </form>
+        <div class="summary">
+          <h3>Items in your order</h3>
+          <div id="checkout-items"></div>
+          <p>Subtotal <strong id="check-subtotal">₹0</strong></p>
+          <p>Discount <strong id="check-discount">₹0</strong></p>
+          <p>Delivery <strong id="check-delivery">₹0</strong></p>
+          <h3 class="total">Total <span id="check-total">₹0</span></h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="success" class="success" hidden>
+      <div class="crown">♛</div>
+      <h2>Order placed!</h2>
+      <p id="success-message"></p>
+      <div id="order-details"></div>
+      <button id="shop-again" class="button">Back to shop</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Steam Accessories </p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
